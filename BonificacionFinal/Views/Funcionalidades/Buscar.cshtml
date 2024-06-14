@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Buscar Curso";
+}
+
+<h2>Buscar Curso</h2>
+
+@using (Html.BeginForm("Buscar", "Funcionalidades", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.Label("Código del Curso")
+        @Html.TextBox("codigoCurso", null, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-default">Buscar</button>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
